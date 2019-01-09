@@ -3,12 +3,16 @@
 // Definitions by: Odd Eirik Nes <https://github.com/oddeirik>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
+
 declare namespace EventBus {
   interface EventBusStatic {
     new(url: string, options?: any): EventBus;
   }
 
+  
+
   interface EventBus {
+    
     url: string;
     options?: any;
     onopen(): any;
@@ -22,6 +26,13 @@ declare namespace EventBus {
     enablePing(enable: boolean): void;
     close(): any;
   }
+}
+
+declare enum EventBusState {
+  CONNECTING = 0, 
+  OPEN = 1, 
+  CLOSING = 2,
+  CLOSED = 3
 }
 
 declare var EventBus: EventBus.EventBusStatic;
